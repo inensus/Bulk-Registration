@@ -76,7 +76,7 @@
                         </div>
                         <div class="buttons-area">
                             <md-button role="button" class="md-raised" style="float: right"
-                                       @click="$router.push('/people')">
+                                       @click="goToCustomerList()">
                                 Done
                             </md-button>
                             <md-button role="button" class="md-raised md-primary" style="float: right"
@@ -178,6 +178,9 @@ export default {
             for (let value of Object.values(this.csvUploadService.recentlyCreatedRecords)) {
                 this.createdRecordCount += value
             }
+        },
+        goToCustomerList(){
+            this.$router.replace('/people')
         },
         alertNotify (type, message) {
             this.$notify({

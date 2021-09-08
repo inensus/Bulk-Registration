@@ -3,10 +3,9 @@ return [
     'csv_fields' => [
 
         'person' => [
-            'name' => 'First Name',
-            'm-name' => 'Middle Name',
-            'surname' => 'Surname',
-            'created_at' => 'Date of registration'
+            'name' => 'Customer Name',
+            'gender'=> 'Sex / Gender',
+            'title'=>'customer_ID'
         ],
 
         'cluster' => [
@@ -21,13 +20,13 @@ return [
         'city' => [
             'cluster_id' => 'cluster_id',
             'mini_grid_id' => 'mini_grid_id',
-            'name' => 'Village name'
+            'name' => 'Location'
         ],
 
         'address' => [
             'person_id' => 'person_id',
             'city_id' => 'city_id',
-            'phone' => 'Phone number',
+            'phone' => 'Contacts',
             'alternative_phone' => 'Alternate phone number'
         ],
 
@@ -47,8 +46,11 @@ return [
         ],
 
         'appliance_type' => [
-            'name' => 'What appliance would you like to purchase?',
+            'name' => 'Asset Purchased',
             'price' => 0
+        ],
+        'asset_rate'=>[
+
         ],
 
         'manufacturer' => [
@@ -104,14 +106,19 @@ return [
                 'type' => 'Take picture of customer payment reciept',
                 'location' => null
             ],
+        ],
+
+        'appliance_person_json' =>[
+            'appliance_people'=>'loan_json',
+            'appliance_rates'=>'payments_json'
         ]
 
     ],
     'appliance_types' => ['TV - 24', 'Option 5', 'Fridge', 'Freezer', 'Fan'],
 
     'geocoder' => [
-        'key' => 'AIzaSyAnSY-zdlCXxLwW9jgmbVEo_fwLMSDkG9E',
-        'country' => 'NG',
+        'key' => '-',
+        'country' => 'UG',
     ],
 
     'reflections' => [
@@ -129,5 +136,6 @@ return [
         'MeterParameterService' => 'Inensus\BulkRegistration\Services\MeterParameterService',
         'MeterService' => 'Inensus\BulkRegistration\Services\MeterService',
         'ManufacturerService' => 'Inensus\BulkRegistration\Services\ManufacturerService',
+        'AppliancePersonService' => 'Inensus\BulkRegistration\Services\AppliancePersonService',
     ]
 ];
