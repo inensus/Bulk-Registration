@@ -44,7 +44,6 @@ class CsvDataProcessor
             $row['city_id'] = $city->id;
             $this->checkRecordWasRecentlyCreated($city, 'village');
             $this->createRecordFromCsv($row, $this->reflections['AddressService']);
-
             $this->createRecordFromCsv($row, $this->reflections['AppliancePersonService']);
         });
         return $this->recentlyCreatedRecords;
