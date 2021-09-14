@@ -146,7 +146,7 @@ class AppliancePersonService extends CreatorService
         $transaction = $this->createCashTransaction($creatorId,
             $amount, $sender, $paymentDate);
         $this->createPaymentLog($creatorId, $appliancePerson, $amount, $paymentDate);
-        if (is_array($loans)){
+
             foreach ($loans as $loan) {
                 if ($loan->remaining > $amount) {
 
@@ -173,7 +173,7 @@ class AppliancePersonService extends CreatorService
                     $this->updateLastPaymentCreationDate($paymentDate);
                 }
             }
-        }
+
 
     }
 
