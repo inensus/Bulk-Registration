@@ -18,7 +18,7 @@ class TariffService extends CreatorService
         $tariffData = [
             'name' => $csvData[$tariffConfig['name']],
             'price' => $csvData[$tariffConfig['price']],
-            'currency' => $csvData[$tariffConfig['currency']],
+            'currency' => "K",
             'total_price' => $csvData[$tariffConfig['total_price']]
         ];
         return $this->createRelatedDataIfDoesNotExists($tariffData);
