@@ -56,13 +56,13 @@ class UpdatePackage extends Command
     private function removeOldVersionOfPackage()
     {
         $this->info('Removing former version of package\n');
-        echo shell_exec('COMPOSER_MEMORY_LIMIT=-1 ../composer.phar  remove inensus/bulk-registration');
+        echo shell_exec('COMPOSER_MEMORY_LIMIT=-1 ../composer.phar  remove inensus/bulk-registration:dev-ener-grow');
     }
 
     private function installNewVersionOfPackage()
     {
         $this->info('Installing last version of package\n');
-        echo shell_exec('COMPOSER_MEMORY_LIMIT=-1 ../composer.phar  require inensus/bulk-registration');
+        echo shell_exec('COMPOSER_MEMORY_LIMIT=-1 ../composer.phar  require inensus/bulk-registration:dev-ener-grow');
 
     }
 

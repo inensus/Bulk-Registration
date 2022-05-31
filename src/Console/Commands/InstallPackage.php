@@ -28,7 +28,7 @@ class InstallPackage extends Command
         $this->createDatabaseTables();
         $this->publishVueFiles();
         $this->createPluginRecord();
-        $this->meterTypeService->createDefaultMeterTypeIfDoesNotExistAny();
+
         $this->call('routes:generate');
         $this->createMenuItems();
         $this->call('sidebar:generate');

@@ -3,6 +3,7 @@
 namespace Inensus\BulkRegistration\Test\Feature;
 
 use App\Models\User;
+use Database\Factories\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Inensus\BulkRegistration\Models\CsvData;
@@ -10,7 +11,7 @@ use Tests\TestCase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 
-class extends TestCase
+class ImportCsvTest extends TestCase
 {
 
     use RefreshDatabase;
@@ -19,7 +20,7 @@ class extends TestCase
     public function test_is_user_sent_csv()
     {
         $this->withoutExceptionHandling();
-        $user = factory(User::class)->create();
+        $user = UserFactory::new()->create();
 
         $uploadedFile = new UploadedFile (__DIR__ . '/../../resources/test-files/test.csv', 'test.csv', null, null, true);
         $csv_data_file = [

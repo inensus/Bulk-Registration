@@ -30,8 +30,9 @@ class GeographicalInformationService
         if ($ownerModel instanceof MiniGrid) {
             $this->createMiniGridRelatedGeographicalInformation($ownerModel);
         } else {
-            $geographicalInformationData = $this->createMeterParameterRelatedGeographicalInformation($geographicalInformationData,
-                $csvData, $ownerModel);
+            $geographicalInformationData =
+                $this->createMeterParameterRelatedGeographicalInformation($geographicalInformationData,
+                    $csvData, $ownerModel);
             $this->createRelatedDataIfDoesNotExists($geographicalInformationData, $ownerModel);
         }
     }
@@ -50,9 +51,10 @@ class GeographicalInformationService
         if ($geographicalInformation->points !== "") {
             return false;
         }
-        $geographicalLocationFinder = app()->make(GeographicalLocationFinder::class);
-        $geographicalCoordinatesResult = $geographicalLocationFinder->getCoordinatesGivenAddress($geographicalInformation->owner->name);
-        $geographicalInformation->points = $geographicalCoordinatesResult['lat'] . ',' . $geographicalCoordinatesResult['lng'];
+        //$geographicalLocationFinder = app()->make(GeographicalLocationFinder::class);
+        // $geographicalCoordinatesResult = $geographicalLocationFinder->getCoordinatesGivenAddress
+        //($geographicalInformation->owner->name);
+        $geographicalInformation->points = '12.9727867,98.6373245';
         return $geographicalInformation->save();
     }
 
@@ -73,10 +75,16 @@ class GeographicalInformationService
         if ($geographicalInformation) {
             return false;
         }
-        if ($csvData[$this->geographicalInformationConfig['household']] === "\/n") {
-            return false;
-        }
-        $geographicalInformationData['points'] = $csvData[$this->geographicalInformationConfig['household_latitude']] . ',' . $csvData[$this->geographicalInformationConfig['household_longitude']];
+        $geographicalInformationData['points'] =
+            $this->generateRandomFloatNumber(12.9727867) .
+            ',' .
+            $this->generateRandomFloatNumber(98.6373245);
         return $geographicalInformationData;
+    }
+
+    // generate random float number
+    private function generateRandomFloatNumber($coordinate, $min = -1.5, $max = 1.2)
+    {
+        return strval($coordinate + round($min + mt_rand() / mt_getrandmax() * ($max - $min), 2));
     }
 }

@@ -17,9 +17,9 @@ class TariffService extends CreatorService
         $tariffConfig = config('bulk-registration.csv_fields.tariff');
         $tariffData = [
             'name' => $csvData[$tariffConfig['name']],
-            'price' => $tariffConfig['price'],
-            'currency' => $tariffConfig['currency'],
-            'total_price' => $tariffConfig['total_price']
+            'price' => $csvData[$tariffConfig['price']],
+            'currency' => $csvData[$tariffConfig['currency']],
+            'total_price' => $csvData[$tariffConfig['total_price']]
         ];
         return $this->createRelatedDataIfDoesNotExists($tariffData);
     }

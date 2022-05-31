@@ -33,16 +33,6 @@ class AddressService extends CreatorService
             'is_primary' => 1
         ];
         array_push($returnAddresses,$firstAddressData);
-        if (array_key_exists($csvData[$addressConfig['alternative_phone']], $csvData)) {
-            $alternativeAddress = [
-                'owner_type' => 'person',
-                'owner_id' => $csvData[$addressConfig['person_id']],
-                'city_id' => $csvData[$addressConfig['city_id']],
-                'phone' => $csvData[$addressConfig['alternative_phone']],
-                'is_primary' => 0
-            ];
-            array_push($returnAddresses,$alternativeAddress);
-        }
         $this->createRelatedDataIfDoesNotExists($returnAddresses);
     }
 }

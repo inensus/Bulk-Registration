@@ -15,14 +15,12 @@ class ManufacturerService extends CreatorService
     }
     public function resolveCsvDataFromComingRow($csvData)
     {
-        $manufacturerConfig = config('bulk-registration.csv_fields.manufacturer');
-        if (strlen(preg_replace('/\s+/', '', $csvData[$manufacturerConfig['name']]))>0){
             $manufacturerData = [
-                'name' => $csvData[$manufacturerConfig['name']],
-                'api_name' =>preg_replace('/\s+/', '', $csvData[$manufacturerConfig['name']]).'Api'
+                'name' => 'Calin Meters STS',
+                'website' => 'http://www.calinmeter.com/',
+                'api_name' => 'CalinApi'
             ];
             return $this->createRelatedDataIfDoesNotExists($manufacturerData);
-        }
-       return false;
+
     }
 }

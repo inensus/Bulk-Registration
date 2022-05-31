@@ -3,60 +3,63 @@ return [
     'csv_fields' => [
 
         'person' => [
-            'name' => 'First Name',
-            'm-name' => 'Middle Name',
-            'surname' => 'Surname',
-            'created_at' => 'Date of registration'
+            'name' => 'Customer_Name',
+            'account_title' => 'AccountNo',
+
         ],
 
         'cluster' => [
-            'name' => 'State'
+            'name' => 'Region'
         ],
 
         'mini_grid' => [
             'cluster_id' => 'cluster_id',
-            'name' => 'LGA'
+            'name' => 'Township'
         ],
 
         'city' => [
             'cluster_id' => 'cluster_id',
             'mini_grid_id' => 'mini_grid_id',
-            'name' => 'Village name'
+            'name' => 'Village'
         ],
 
         'address' => [
             'person_id' => 'person_id',
             'city_id' => 'city_id',
-            'phone' => 'Phone number',
-            'alternative_phone' => 'Alternate phone number'
+            'phone' => 'Customer Phone'
         ],
 
         'tariff' => [
-            'name' => 'Service selected by customer',
-            'currency' => 'NGN',
-            'price' => 0,
-            'total_price' => 0
-        ],
+            'name' => 'MeterType',
+            'currency' => 'K',
+            'price' => 'UnitCost',
+            'total_price' => 'UnitCost',
 
+        ],
+        'access_rate' => [
+            'tariff_id' => 'tariff_id',
+            'connection_fee' => 'ConnectionFees',
+            'period' => 30
+        ],
         'connection_type' => [
-            'name' => 'Connection package'
+            'name' => 'MeterType'
         ],
 
         'connection_group' => [
-            'name' => 'Purpose of connection'
+            'name' => 'MeterType'
         ],
 
         'appliance_type' => [
             'name' => 'What appliance would you like to purchase?',
             'price' => 0
         ],
-
-        'manufacturer' => [
-            'name' => 'Specify meter manufacturer '
+        'meter_type' => [
+            'max_current' => 'LoadLimit',
+            'online' => 1,
+            'phase' => 1,
         ],
-
         'meter' => [
-            'serial_number' => 'Scan meter Barcode',
+            'serial_number' => 'MeterID&VillgePCode',
             'in_use' => 1,
             'manufacturer_id' => 'manufacturer_id',
         ],
@@ -73,45 +76,15 @@ return [
         'geographical_information' => [
             'owner_type' => 'owner_type',
             'owner_id' => 'owner_id',
-            'points' => 'points',
-            'household_latitude' => '_GPS location of household_latitude',
-            'household_longitude' => '_GPS location of household_longitude',
-            'household' => 'GPS location of household'
-        ],
-
-        'person_docs' => [
-            'customer_picture' => [
-                'person_id'=>'person_id',
-                'name' => 'name',
-                'type' => 'Customer Picture',
-                'location' => null
-            ],
-            'signed_contract' => [
-                'person_id'=>'person_id',
-                'name' => 'name',
-                'type' => 'Take picture of signed contract',
-                'location' => null
-            ],
-            'customer_id' => [
-                'person_id'=>'person_id',
-                'name' => 'name',
-                'type' => 'Take picture of customer ID',
-                'location' => null
-            ],
-            'payment receipt' => [
-                'person_id'=>'person_id',
-                'name' => 'name',
-                'type' => 'Take picture of customer payment reciept',
-                'location' => null
-            ],
+            'points' => 'points'
         ]
 
     ],
     'appliance_types' => ['TV - 24', 'Option 5', 'Fridge', 'Freezer', 'Fan'],
 
     'geocoder' => [
-        'key' => 'AIzaSyAnSY-zdlCXxLwW9jgmbVEo_fwLMSDkG9E',
-        'country' => 'NG',
+        'key' => 'AIzaSyCSKRhRzHc8Kx0GXBqIKg_VWljmGXqANzI',
+        'country' => 'MM',
     ],
 
     'reflections' => [
@@ -129,5 +102,7 @@ return [
         'MeterParameterService' => 'Inensus\BulkRegistration\Services\MeterParameterService',
         'MeterService' => 'Inensus\BulkRegistration\Services\MeterService',
         'ManufacturerService' => 'Inensus\BulkRegistration\Services\ManufacturerService',
+        'AccessRateService' => 'Inensus\BulkRegistration\Services\AccessRateService',
+        'MeterTypeService' => 'Inensus\BulkRegistration\Services\MeterTypeService',
     ]
 ];
