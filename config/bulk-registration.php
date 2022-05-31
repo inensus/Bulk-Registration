@@ -83,7 +83,7 @@ return [
     'appliance_types' => ['TV - 24', 'Option 5', 'Fridge', 'Freezer', 'Fan'],
 
     'geocoder' => [
-        'key' => 'AIzaSyCSKRhRzHc8Kx0GXBqIKg_VWljmGXqANzI',
+        'key' => '',
         'country' => 'MM',
     ],
 
