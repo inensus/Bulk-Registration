@@ -10,13 +10,13 @@ use Tests\TestCase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 
-class ImportCsv extends TestCase
+class extends TestCase
 {
 
     use RefreshDatabase;
 
-    /** @test */
-    public function is_user_sent_csv()
+
+    public function test_is_user_sent_csv()
     {
         $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
