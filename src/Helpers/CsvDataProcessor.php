@@ -63,9 +63,10 @@ class CsvDataProcessor
             $row['connection_group_id'] = $connectionGroup->id;
             $this->checkRecordWasRecentlyCreated($connectionGroup,'connection_group');
 
-            $this->createRecordFromCsv($row, $this->reflections['ApplianceTypeService']);
+            //$this->createRecordFromCsv($row, $this->reflections['ApplianceTypeService']);
 
             $manufacturer = $this->createRecordFromCsv($row, $this->reflections['ManufacturerService']);
+
             if ($manufacturer) {
                 $row['manufacturer_id'] = $manufacturer->id;
                 $meter = $this->createRecordFromCsv($row, $this->reflections['MeterService']);

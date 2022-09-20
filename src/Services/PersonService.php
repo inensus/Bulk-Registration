@@ -20,6 +20,7 @@ class PersonService extends CreatorService
         $personData = [
             'name' => $csvData[$personConfig['name']] . ' ' . $csvData[$personConfig['m-name']],
             'surname' => $csvData[$personConfig['surname']],
+            'sex' => $csvData[$personConfig['sex']],
         ];
         return $this->createRelatedDataIfDoesNotExists($personData);
     }

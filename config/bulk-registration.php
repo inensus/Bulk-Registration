@@ -6,7 +6,8 @@ return [
             'name' => 'First Name',
             'm-name' => 'Middle Name',
             'surname' => 'Surname',
-            'created_at' => 'Date of registration'
+            'sex' => 'Gender',
+            'birth_date' => 'Date of birth'
         ],
 
         'cluster' => [
@@ -15,7 +16,7 @@ return [
 
         'mini_grid' => [
             'cluster_id' => 'cluster_id',
-            'name' => 'LGA'
+            'name' => 'Mini Grid Name'
         ],
 
         'city' => [
@@ -32,18 +33,18 @@ return [
         ],
 
         'tariff' => [
-            'name' => 'Service selected by customer',
-            'currency' => 'NGN',
-            'price' => 0,
-            'total_price' => 0
+            'name' => 'Tariff Name',
+            'currency' => 'Currency',
+            'price' => 'Tariff Price',
+            'total_price' => 'Tariff Price'
         ],
 
         'connection_type' => [
-            'name' => 'Connection package'
+            'name' => 'Connection Type'
         ],
 
         'connection_group' => [
-            'name' => 'Purpose of connection'
+            'name' => 'Connection Group'
         ],
 
         'appliance_type' => [
@@ -52,11 +53,11 @@ return [
         ],
 
         'manufacturer' => [
-            'name' => 'Specify meter manufacturer '
+            'name' => 'Meter Manufacturer Name'
         ],
 
         'meter' => [
-            'serial_number' => 'Scan meter Barcode',
+            'serial_number' => 'Meter Serial Number',
             'in_use' => 1,
             'manufacturer_id' => 'manufacturer_id',
         ],
